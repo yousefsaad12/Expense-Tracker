@@ -1,19 +1,21 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Backend.Models
+namespace Backend.Models;
+
+public partial class Category
 {
-    public class Category
-    {
-        public int CategoryId { get; set; }
-        public string Name { get; set; }
-        public string ? Description { get; set; }
-        public string ? Emoji { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public int CategoryId { get; set; }
 
-        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+    public string Name { get; set; } = null!;
 
-    }
+    public string? Description { get; set; }
+
+    public string? Emoji { get; set; }
+
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
+    public virtual ICollection<Expense> Expenses { get; set; } = new List<Expense>();
 }
