@@ -1,10 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Humanizer;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-
 namespace Backend.Mappers
 {
     public static class CategoryMapper
@@ -18,6 +11,18 @@ namespace Backend.Mappers
                 Emoji = categoryCreated.Emoji,
                 CreatedAt = categoryCreated.CreatedAt,
                 UpdatedAt = categoryCreated.UpdatedAt,
+            };
+        }
+
+        public static CategoryResponse ToCategoryResponse (this Category category)
+        {
+            return new CategoryResponse
+            {
+                Name = category.Name,
+                Description = category.Description,
+                Emoji = category.Emoji,
+                CreatedAt = category.CreatedAt,
+                UpdatedAt = category.UpdatedAt,
             };
         }
     }
